@@ -309,12 +309,8 @@
 
             if (phoneSuffix.length === 4) {
                 const phonePrefix = [
-                    // 移动
-                    "138", "139", "150", "151", "158", "159", "182", "187", "188", "198",
-                    // 联通
-                    "130", "131", "132", "155", "156", "185", "186", "166",
-                    // 电信
-                    "133", "153", "177", "180", "181", "189", "199"
+                    // 虚拟运营商
+                    "170", "171", "162", "165", "167"
                 ];
                 const randomPrefix = phonePrefix[Math.floor(Math.random() * phonePrefix.length)];
                 const randomMiddle = Math.floor(Math.random() * 10000).toString().padStart(4, '0');

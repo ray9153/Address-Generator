@@ -4,34 +4,54 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>杭州拱墅地址生成器</title>
+    <title>何西西-杭州拱墅长浜路</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-blue-hover: #0068d6;
+            --apple-gray-light: #f5f5f7;
+            --apple-gray-medium: #e5e5ea;
+            --apple-gray-dark: #8e8e93;
+            --card-background: rgba(255, 255, 255, 0.7);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --courier-name-color: #007AFF;
+        }
+
         body {
-            font-family: 'Segoe UI', system-ui;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans SC', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--apple-gray-light);
             min-height: 100vh;
             padding: 1rem;
             font-size: 16px;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            border: none;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-            max-width: 600px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            width: 94%;
+            background: var(--card-background);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            max-width: 680px;
+            margin: 2rem auto;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            width: 95%;
         }
 
         h1 {
-            color: #2c3e50;
-            margin-bottom: 1.2rem;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
         }
 
         .input-container {
@@ -39,94 +59,145 @@
             grid-template-columns: 100px 1fr;
             align-items: center;
             gap: 1rem;
-            margin: 1.2rem 0;
+            margin: 1.5rem 0;
         }
 
         label {
             font-weight: 500;
-            color: #34495e;
+            color: var(--text-secondary);
         }
 
         input {
-            padding: 0.8rem;
-            border: 1px solid #bdc3c7;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            padding: 12px 16px;
+            border: 1px solid var(--apple-gray-medium);
+            border-radius: 12px;
+            transition: all 0.2s ease-in-out;
             font-size: 16px;
+            background: var(--apple-gray-light);
         }
 
         input:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            border-color: var(--apple-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
             outline: none;
+            background: #fff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
         button {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            padding: 0.8rem;
+            padding: 12px 20px;
             font-size: 1rem;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+            border-radius: 12px;
             border: none;
-            color: white;
             cursor: pointer;
-            width: 100%;
+            width: auto;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: var(--apple-blue);
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--apple-blue-hover);
+            box-shadow: 0 6px 16px rgba(0, 123, 255, 0.25);
+        }
+
+        .btn-secondary {
+            background: var(--apple-gray-medium);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: #dcdce1;
+        }
+
+        button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        #result,
+        .example {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: none;
+            color: var(--text-primary);
         }
 
         #result {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1.2rem;
-            border: 1px solid #eaecee;
-            font-family: 'Courier New', monospace;
-            color: #2c3e50;
+            font-family: 'SF Mono', 'Courier New', monospace;
             white-space: pre-wrap;
             overflow-x: auto;
-        }
-
-        .example {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1.2rem 0;
+            line-height: 1.7;
+            background-color: var(--apple-gray-light);
         }
 
         .example h3 {
-            color: #3498db;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--apple-gray-medium);
+            padding-bottom: 0.75rem;
         }
 
         .example p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #7f8c8d;
-            margin: 0.4rem 0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin: 0.75rem 0;
         }
 
         @media screen and (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+
             .container {
-                padding: 1rem;
+                padding: 1.5rem;
+                margin: 1rem auto;
             }
 
             .input-container {
                 grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
 
+            label {
+                margin-bottom: 0.25rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+            
             button {
-                padding: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            #result {
-                font-size: 14px;
+                width: 100%;
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
 
@@ -136,20 +207,23 @@
         }
 
         button:active {
-            transform: scale(0.98);
+            transform: scale(0.98) translateY(0);
+            transition-duration: 0.05s;
         }
 
         .courier-name {
-            color: #ff4444;
+            color: var(--courier-name-color);
             font-weight: 500;
-            text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 123, 255, 0.1);
+            padding: 3px 8px;
+            border-radius: 6px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>杭州拱墅长浜路地址生成器</h1>
+        <h1>何西西-杭州拱墅长浜路</h1>
         <div class="example">
             <h3>地址示例文本</h3>
             <p>地址生成原则：</p>
@@ -159,8 +233,8 @@
             <p>示例：</p>
             <p>收货人：张三</p>
             <p>收件电话：15412345678</p>
-            <p>收货地址：杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼 1单元 870室</p>
-            <h3 style="margin-top:1.2rem; color:#27ae60;">杭州市拱墅区东新街道长浜路签收名单</h3>
+            <p>收货地址：杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼 5栋 1单元 870室</p>
+            <h3 style="margin-top:1.2rem; color:#27ae60;">快递员签收名单</h3>
             <p><strong>圆通快递：</strong>浙江省杭州市德胜（派件员：<span class="courier-name">岳丽娜</span>）</p>
             <p><strong>韵达快递：</strong>浙江杭州拱墅区东新园服务部（派件员：<span class="courier-name">姜德军、贾超群</span>）</p>
             <p><strong>邮政快递：</strong>浙江市拱墅三塘第四揽投部（派件员：<span class="courier-name">宗宣、李仁义、汪锦涛、韩林枫</span>）</p>
@@ -169,12 +243,26 @@
             <p><strong>极兔速递：</strong>杭州下城石桥网点（派件员：<span class="courier-name">姜德军、贾超群</span>）</p>
         </div>
         <div class="input-container">
-            <label for="phone-input">手机号码：</label>
-            <input type="text" id="phone-input" placeholder="输入手机号或留空随机生成">
+            <label for="phone-suffix">手机号码：</label>
+            <input type="text" id="phone-suffix" placeholder="输入4位尾号" required="" maxlength="4">
         </div>
-        <div style="display: flex; gap: 1rem; justify-content: center">
-            <button onclick="generateInfo()">生成地址</button>
-            <button onclick="copyInfo()">一键复制</button>
+        <div class="button-group">
+            <button onclick="generateInfo()" class="btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0011.667 0l3.182-3.182m0-4.991v4.99" />
+                </svg>
+                生成地址
+            </button>
+            <button onclick="copyInfo()" class="btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                </svg>
+                一键复制
+            </button>
         </div>
         <pre id="result"></pre>
     </div>
@@ -191,37 +279,54 @@
             "倪", "汤", "滕", "殷", "罗", "毕", "郝", "邬", "安", "常",
             "乐", "于", "时", "傅", "皮", "卞", "齐", "康", "伍", "余"
         ];
-        const last_name = [
-            "国", "华", "军", "强", "芳", "英", "伟", "丽", "秀", "兰",
-            "勇", "杰", "红", "梅", "玉", "明", "霞", "平", "建", "荣",
-            "刚", "燕", "珍", "琴", "云", "娟", "涛", "斌", "敏", "超",
-            "辉", "玲", "静", "艳", "萍", "庆", "林", "凤", "春", "香",
-            "成", "忠", "德", "志", "海", "山", "金", "福", "桂", "花",
-            "建国", "建军", "秀兰", "玉华", "志强", "丽华", "秀英", "春梅", "国强", "玉珍",
-            "建军", "桂兰", "红梅", "秀芳", "卫东", "爱华", "秀珍", "淑芬", "学军", "秀云",
-            "爱国", "淑英", "秀荣", "桂芳", "淑兰", "秀琴", "爱民", "玉兰", "文华", "秀娟",
-            "文革", "学东", "爱英", "淑珍", "秀玲", "玉梅", "保国", "淑华", "秀霞", "卫红",
-            "淑贞", "学武", "秀芬", "志军", "爱玲", "淑芳", "玉芳", "学文", "爱云", "秀芬"
+        const last_name_chars = [
+            '睿', '浩', '然', '瑞', '轩', '子', '宇', '博', '文', '杰', '伦', '辉', '诚', '明', '远', '哲', '俊', '凯', '嘉', '洋',
+            '辰', '晨', '曦', '一', '凡', '欣', '妍', '悦', '琳', '琪', '瑶', '萱', '涵', '梓', '航', '铭', '鑫', '鹏', '涛', '海',
+            '峰', '斌', '强', '军', '平', '刚', '勇', '宁', '静', '婷', '娜', '芳', '秀', '英', '华', '慧', '敏', '燕', '丹', '萍',
+            '伟', '丽', '云', '梅', '雪', '琴', '霞', '月', '波', '兰', '森', '琳', '涵', '语', '麟', '晨', '宇', '怡', '全', '盛'
         ];
 
         const addresses = [`杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼`];
         let generatedInfo = "";
 
+        function generateName() {
+            const surname = first_name[Math.floor(Math.random() * first_name.length)];
+            let givenName;
+
+            if (Math.random() < 0.7) { // 70% 概率生成双名
+                const char1 = last_name_chars[Math.floor(Math.random() * last_name_chars.length)];
+                const char2 = last_name_chars[Math.floor(Math.random() * last_name_chars.length)];
+                givenName = char1 + char2;
+            } else { // 30% 概率生成单名
+                givenName = last_name_chars[Math.floor(Math.random() * last_name_chars.length)];
+            }
+            return surname + givenName;
+        }
+
         function generateInfo() {
-            const phoneInput = document.getElementById("phone-input").value;
+            const phoneSuffix = document.getElementById("phone-suffix").value;
             let phone;
 
-            if (phoneInput.trim() === "") {
-                const secondDigit = Math.floor(Math.random() * 7) + 3; // 3-9
-                const lastNineDigits = Math.random().toString().slice(2, 11);
-                phone = `1${secondDigit}${lastNineDigits}`;
+            if (phoneSuffix.length === 4) {
+                const phonePrefix = [
+                    // 移动
+                    "138", "139", "150", "151", "158", "159", "182", "187", "188", "198",
+                    // 联通
+                    "130", "131", "132", "155", "156", "185", "186", "166",
+                    // 电信
+                    "133", "153", "177", "180", "181", "189", "199"
+                ];
+                const randomPrefix = phonePrefix[Math.floor(Math.random() * phonePrefix.length)];
+                const randomMiddle = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+                phone = randomPrefix + randomMiddle + phoneSuffix;
             } else {
-                phone = phoneInput;
+                alert("请输入有效的4位手机尾号");
+                return;
             }
 
-            const name = first_name[Math.floor(Math.random() * first_name.length)] + last_name[Math.floor(Math.random() * last_name.length)];
+            const name = generateName();
             const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
-            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress} ${Math.floor(Math.random() * 20) + 1}单元${Math.floor(Math.random() * 899) + 100}室`;
+            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress} ${Math.floor(Math.random() * 15) + 1}栋 ${Math.floor(Math.random() * 20) + 1}单元${Math.floor(Math.random() * 899) + 100}室`;
             document.getElementById("result").innerText = generatedInfo;
         }
 

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州拱墅地址生成器</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 1rem;
+            font-size: 16px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            width: 94%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-size: 1.8rem;
+        }
+
+        .input-container {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        label {
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            padding: 0.8rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #result {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1.2rem;
+            border: 1px solid #eaecee;
+            font-family: 'Courier New', monospace;
+            color: #2c3e50;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+        }
+
+        .example h3 {
+            color: #3498db;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .example p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #7f8c8d;
+            margin: 0.4rem 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .input-container {
+                grid-template-columns: 1fr;
+            }
+
+            button {
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            #result {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        input,
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .courier-name {
+            color: #ff4444;
+            font-weight: 500;
+            text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>杭州拱墅长浜路地址生成器</h1>
+        <div class="example">
+            <h3>地址示例文本</h3>
+            <p>地址生成原则：</p>
+            <p>收货人：随机生成中文姓名</p>
+            <p>电话号码：基于输入尾号生成完整号码</p>
+            <p>收货地址：杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼，单元和房号随机</p>
+            <p>示例：</p>
+            <p>收货人：张三</p>
+            <p>收件电话：15412345678</p>
+            <p>收货地址：杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼 1单元 870室</p>
+            <h3 style="margin-top:1.2rem; color:#27ae60;">杭州市拱墅区东新街道长浜路签收名单</h3>
+            <p><strong>圆通快递：</strong>浙江省杭州市德胜（派件员：<span class="courier-name">岳丽娜</span>）</p>
+            <p><strong>韵达快递：</strong>浙江杭州拱墅区东新园服务部（派件员：<span class="courier-name">姜德军、贾超群</span>）</p>
+            <p><strong>邮政快递：</strong>浙江市拱墅三塘第四揽投部（派件员：<span class="courier-name">宗宣、李仁义、汪锦涛、韩林枫</span>）</p>
+            <p><strong>申通快递：</strong>浙江杭州拱墅区东新园公司（派件员：<span class="courier-name">贾超群</span>）</p>
+            <p><strong>中通快递：</strong>杭州东新路（派件员：<span class="courier-name">杨叶红</span>）</p>
+            <p><strong>极兔速递：</strong>杭州下城石桥网点（派件员：<span class="courier-name">姜德军、贾超群</span>）</p>
+        </div>
+        <div class="input-container">
+            <label for="phone-input">手机号码：</label>
+            <input type="text" id="phone-input" placeholder="输入手机号或留空随机生成">
+        </div>
+        <div style="display: flex; gap: 1rem; justify-content: center">
+            <button onclick="generateInfo()">生成地址</button>
+            <button onclick="copyInfo()">一键复制</button>
+        </div>
+        <pre id="result"></pre>
+    </div>
+
+    <script>
+        const first_name = [
+            "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈",
+            "褚", "卫", "蒋", "沈", "韩", "杨", "朱", "秦", "尤", "许",
+            "何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏",
+            "陶", "姜", "戚", "谢", "邹", "喻", "柏", "水", "窦", "章",
+            "云", "苏", "潘", "葛", "奚", "范", "彭", "郎", "鲁", "韦",
+            "舒", "马", "苗", "凤", "花", "方", "俞", "任", "袁", "柳",
+            "酆", "鲍", "史", "唐", "费", "廉", "岑", "薛", "雷", "贺",
+            "倪", "汤", "滕", "殷", "罗", "毕", "郝", "邬", "安", "常",
+            "乐", "于", "时", "傅", "皮", "卞", "齐", "康", "伍", "余"
+        ];
+        const last_name = [
+            "国", "华", "军", "强", "芳", "英", "伟", "丽", "秀", "兰",
+            "勇", "杰", "红", "梅", "玉", "明", "霞", "平", "建", "荣",
+            "刚", "燕", "珍", "琴", "云", "娟", "涛", "斌", "敏", "超",
+            "辉", "玲", "静", "艳", "萍", "庆", "林", "凤", "春", "香",
+            "成", "忠", "德", "志", "海", "山", "金", "福", "桂", "花",
+            "建国", "建军", "秀兰", "玉华", "志强", "丽华", "秀英", "春梅", "国强", "玉珍",
+            "建军", "桂兰", "红梅", "秀芳", "卫东", "爱华", "秀珍", "淑芬", "学军", "秀云",
+            "爱国", "淑英", "秀荣", "桂芳", "淑兰", "秀琴", "爱民", "玉兰", "文华", "秀娟",
+            "文革", "学东", "爱英", "淑珍", "秀玲", "玉梅", "保国", "淑华", "秀霞", "卫红",
+            "淑贞", "学武", "秀芬", "志军", "爱玲", "淑芳", "玉芳", "学文", "爱云", "秀芬"
+        ];
+
+        const addresses = [`杭州市拱墅区东新街道长浜路与新天地街交叉口绿城时代星火城70号楼`];
+        let generatedInfo = "";
+
+        function generateInfo() {
+            const phoneInput = document.getElementById("phone-input").value;
+            let phone;
+
+            if (phoneInput.trim() === "") {
+                const secondDigit = Math.floor(Math.random() * 7) + 3; // 3-9
+                const lastNineDigits = Math.random().toString().slice(2, 11);
+                phone = `1${secondDigit}${lastNineDigits}`;
+            } else {
+                phone = phoneInput;
+            }
+
+            const name = first_name[Math.floor(Math.random() * first_name.length)] + last_name[Math.floor(Math.random() * last_name.length)];
+            const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
+            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress} ${Math.floor(Math.random() * 20) + 1}单元${Math.floor(Math.random() * 899) + 100}室`;
+            document.getElementById("result").innerText = generatedInfo;
+        }
+
+        function copyInfo() {
+            const resultElement = document.getElementById("result");
+            const range = document.createRange();
+            range.selectNode(resultElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+            alert("信息已复制到剪贴板！");
+        }
+    </script>
+</body>
+
+</html>
